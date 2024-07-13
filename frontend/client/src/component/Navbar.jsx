@@ -24,13 +24,13 @@ const Navbar = () => {
  
 
   return (
-    <div className=" flex items-center justify-between px-6 md:px-[200px] py-6 relative bg-[#01AFD1] text-white">
+    <div className=" flex items-center justify-between px-6 md:px-[200px] py-6 relative bg-black text-white">
       <h1 className="text-lg md:text-xl font-extrabold mr-14">
         <Link to="/">Travelers' Blog <div><MdOutlineTravelExplore /></div></Link></h1>
         {shouldShowSearch && (
           <div className="flex justify-center items-center space-x-0">
           <p onClick={()=>navigate(prompt?"?search="+prompt:navigate)} className="cursor-pointer"><BsSearch/></p>
-          <input onChange={(e)=>setPrompt(e.target.value)} className="outline-none px-3" placeholder="Search a post.." type="text" />
+          <input onChange={(e)=>setPrompt(e.target.value)} className="outline-none bg-black px-3" placeholder="Search " type="text" />
         </div>
 
         )}

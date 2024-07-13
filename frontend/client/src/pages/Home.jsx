@@ -84,6 +84,7 @@ import { URL } from "../url";
 import { Link, useLocation } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { BsTypeH3 } from "react-icons/bs";
+import Hero from "../component/Hero";
 
 const Home = () => {
 
@@ -117,6 +118,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
+      <Hero/>
       <div className="px-8 md:px-[200px] min-h-[80vh]">
         { !noResults?
           posts.map((post) => (

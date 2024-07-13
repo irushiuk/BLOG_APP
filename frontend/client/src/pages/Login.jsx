@@ -7,6 +7,7 @@ import { URL } from '../url';
 import { UserContext } from '../context/UserContext';
 import { FaLock } from "react-icons/fa";
 import LoginImg from '../assets/beach.jpg';
+import 'react-slideshow-image'
 
 const Login = () => {
   const [email, setEmail] = useState("");
