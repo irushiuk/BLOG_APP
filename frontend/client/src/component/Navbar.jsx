@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   const {user} = useContext(UserContext);
-  const shouldShowSearch = !['/login','/register','/write', '/posts/post','/edit','/profile'].some(path => location.pathname.includes(path));
+  const shouldShowSearch = !['/login','/register','/write', '/posts/post','/edit','/profile','/about'].some(path => location.pathname.includes(path));
 
  
 
@@ -47,6 +47,9 @@ const Navbar = () => {
           <p className="cursor-pointer relative"><FaBars/></p>
           {isMenuOpen && <Menu />}
           </div>  : <h3><Link to="/register">Register</Link></h3>}
+      </div>
+      <div>
+        <h3><Link to="/about">About</Link></h3>
       </div>
       <div onClick={toggleMenu} className="md:hidden text-lg cursor-pointer">
         <FaBars />

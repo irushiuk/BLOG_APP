@@ -73,8 +73,17 @@ const Register = () => {
   return (
     <div>
       <Navbar />
-      <div className='w-full flex justify-center items-center h-[70vh]'>
-        <div className='flex flex-col justify-center items-center space-y-4'>
+      <div className="flex flex-grow">
+        <div className="relative w-2/3">
+      <img src="https://images.unsplash.com/photo-1503516459261-40c66117780a?w=500&auto=format&fit=crop&q=60&ixlib=r
+      b-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZSUyMHRyYXZlbGxpbmd8ZW58MHx8MHx8fDA%3D" alt="" 
+      className="absolute inset-0 w-full h-full object-cover"/>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <h1 className="text-white text-4xl font-bold">Create an account and share your experience with us..</h1>
+      </div>
+      </div>
+      <div className=' flex justify-center items-center h-[70vh] relatife w-1/3'>
+        <div className='flex flex-col justify-center items-center space-y-4 text-bold'>
           <h1>Create an account</h1>
           <input
             onChange={(e) => setUsername(e.target.value)}
@@ -97,7 +106,7 @@ const Register = () => {
           {error && <p className='text-red-500'>{error}</p>}
           <button
             onClick={handleRegister}
-            className='w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600'
+            className=' px-4 py-2  text-black outline rounded-full hover:outline-gray-600 '
           >
             Register
           </button>
@@ -106,7 +115,8 @@ const Register = () => {
             <p className="text-blue-500"><Link to="/login">Login</Link></p>
           </div>
         </div>
-      </div>
+      </div></div>
+      
       <Footer />
     </div>
   );

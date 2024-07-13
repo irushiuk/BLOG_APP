@@ -31,13 +31,13 @@ const Login = () => {
       <Navbar />
       <div className="flex flex-grow">
         <div className=" relative" style={{flex:'100%'}}>
-          <img src={LoginImg} className="absolute inset-0 w-full h-full object-cover bg-zinc-900/90" alt="Background" />
+          <img src="https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTF8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D" className="absolute inset-0 w-full h-full object-cover bg-zinc-900/90" alt="Background" />
           <div className="absolute inset-0 bg-black/60 flex justify-center items-center">
             {/* <h1 className="text-white text-4xl font-bold">Share your travel experience with us...</h1> */}
             <div lassName="absolute inset-0 bg-black/60 flex justify-center items-center">
             <div className="flex justify-center items-center" >
           <div className="flex flex-col justify-center items-center space-y-10 gap-x-3 p-6 border shadow-lg w-full max-w-md bg-white/10 backdrop-blur-md rounded-[20px]">
-            <h1>Log into your account</h1>
+            <h1 className='text-white'>Log into your account</h1>
             <form>
               <div className="relative my-4">
                 <input 
@@ -56,7 +56,7 @@ const Login = () => {
                 />
               </div>
             </form>
-            <button onClick={handleLogin} className="px-6 py-2 bg-blue-500 text-white hover:bg-blue-400 rounded-[30px]">Login</button>
+            <button onClick={handleLogin} className="px-6 py-2 outline text-white hover:outline-yellow-100 rounded-full">Login</button>
             {error && <p className="text-red-500">Login failed. Please try again.</p>}
             <div className="flex justify-center items-center space-x-2">
               <p>New here?</p>

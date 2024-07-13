@@ -11,6 +11,7 @@ import EditPost from './pages/EditPost'
 import Profile from './pages/Profile'
 import { UserContextProvider } from './context/UserContext'
 import MyBlogs from './pages/MyBlogs'
+import About from './pages/About'
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path='/write' element={<CreatePost/>}/>
         <Route path='/myblogs' element={<MyBlogs/>}/>
         <Route path='/edit/:id' element={<EditPost/>}/>
+        <Route path='/about' element={<About/>}/>
 
         <Route path='/profile/:id' element={<Profile/>}/>
 
