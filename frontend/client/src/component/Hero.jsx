@@ -4,6 +4,19 @@ import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <div className='relative w-full h-screen'>
+      {/* <div  className="absolute inset-0 w-full h-full">
+      <iframe
+       src="https://www.youtube.com/embed/kcfs1-ryKWE?si=Xuv54Rnj4v_PdJTe" 
+      title="YouTube video player" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      //  referrerpolicy="strict-origin-when-cross-origin" 
+       allowfullscreen
+       className="absolute top-0 left-0 w-full h-full object cover"
+       style={{pointerEvents: 'none'}}>
+
+       </iframe>
+      </div> */}
       <img 
         src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D://plus.unsplash.com/premium_photo-1679917737897-9b373261ad57?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dHJhdmVsfGVufDB8fDB8fHww" 
         alt="heroImg" 

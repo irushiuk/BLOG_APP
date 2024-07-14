@@ -25,8 +25,10 @@ const Navbar = () => {
 
   return (
     <div className=" flex items-center justify-between px-6 md:px-[200px] py-6 relative bg-black text-white">
-      <h1 className="text-lg md:text-xl font-extrabold mr-14">
-        <Link to="/">Travelers' Blog <div><MdOutlineTravelExplore /></div></Link></h1>
+      <div className="flex items-center text-lg md:text-xl font-extrabold mr-14">
+      <MdOutlineTravelExplore />
+        <span><Link to="/">Travelers' Blog </Link></span>
+        </div>
         {shouldShowSearch && (
           <div className="flex justify-center items-center space-x-0">
           <p onClick={()=>navigate(prompt?"?search="+prompt:navigate)} className="cursor-pointer"><BsSearch/></p>
@@ -51,10 +53,10 @@ const Navbar = () => {
       <div>
         <h3><Link to="/about">About</Link></h3>
       </div>
-      <div onClick={toggleMenu} className="md:hidden text-lg cursor-pointer">
+      <div onClick={toggleMenu} className="md:hidden text-lg cursor-pointer relative z-50">
         <FaBars />
       </div>
-      {isMenuOpen && <Menu />} {/* Conditionally render Menu */}
+      {isMenuOpen && <div className="absolute right-0 top-full mt-2 z-50"><Menu /></div> } {/* Conditionally render Menu */}
     </div>
   );
 };

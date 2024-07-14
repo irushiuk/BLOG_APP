@@ -59,7 +59,7 @@ const Login = () => {
             <button onClick={handleLogin} className="px-6 py-2 outline text-white hover:outline-yellow-100 rounded-full">Login</button>
             {error && <p className="text-red-500">Login failed. Please try again.</p>}
             <div className="flex justify-center items-center space-x-2">
-              <p>New here?</p>
+              <p className='text-white'>New here?</p>
               <p className="text-blue-500"><Link to="/register">Register</Link></p>
             </div>
           </div>

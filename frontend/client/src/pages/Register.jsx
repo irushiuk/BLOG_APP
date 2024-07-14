@@ -82,7 +82,7 @@ const Register = () => {
         <h1 className="text-white text-4xl font-bold">Create an account and share your experience with us..</h1>
       </div>
       </div>
-      <div className=' flex justify-center items-center h-[70vh] relatife w-1/3'>
+      <div className=' flex justify-center items-center h-[70vh] relatife w-1/3 backdrop-blur-2xl'>
         <div className='flex flex-col justify-center items-center space-y-4 text-bold'>
           <h1>Create an account</h1>
           <input

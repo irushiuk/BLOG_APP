@@ -157,13 +157,17 @@ const EditPost = () => {
             <Navbar />
             <div className='px-6 md:px[200px] mt-8'>
                 <h1 className='font-bold md:text-2xl text-xl'>Edit Post</h1>
+                <div className='p-8 rounded-lg shadow-lg outline-black'>
                 <form className='w-full flex flex-col space-x-4'>
                     <input onChange={(e) => setTitle(e.target.value)} value={title} type="text" placeholder='Enter post title' className='px-4 py-2 outline-none' />
-                    <input onChange={(e) => setFile(e.target.files[0])} type="file" className='px-4' />
 
                     <textarea onChange={(e) => setDesc(e.target.value)} value={desc} rows={15} cols={30} className='px-4 py-2 outline-none' placeholder='Enter post description'></textarea>
-                    <button onClick={handleUpdate} className='bg-black w-full mx-auto md:w-[20%] text-white font-semibold px-4 py-2 md:text-xl text-lg'>Edit</button>
+                    <input onChange={(e) => setFile(e.target.files[0])} type="file" className='px-4' />
+
+                    <button onClick={handleUpdate}className='bg-black px-4 py-2 mx-auto md:w-[20%] text-white rounded-full font-semibold  md:text-xl text-lg'>Edit</button>
                 </form>
+                </div>
+               
             </div>
             <Footer />
         </div>

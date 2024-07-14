@@ -118,7 +118,8 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <Hero/>
+      {!user && <Hero/>}
+      
       <div className="px-8 md:px-[200px] min-h-[80vh]">
         { !noResults?
           posts.map((post) => (

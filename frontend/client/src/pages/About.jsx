@@ -16,13 +16,13 @@ const About = () => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4">
         <h1 className="text-4xl md:text-6xl font-bold">About Us..</h1>
-        <p className="tflex flex-col justify-center items-center space-y-10 gap-x-3 p-6 border shadow-lg w-full max-w-md bg-white/10 backdrop-blur-md rounded-[20px]">Travel Blog is a unique free online travel diary for travellers across the world. It works from internet cafes and computers world wide, to allow you to update an online travel diary, it is free to join and takes just minutes to setup, all you need is a working email address. You can contact us here if you have business or press questions - or use the Travel Forum for travelblog user support, travel questions, or just introducing yourself. For advertising information please visit our advertising page</p>
-        <Link to="/login">
-        {/* <button className="mt-8 px-6 py-3 outline text-white hover:outline-orange-200 rounded-full">
+        <p className="tflex flex-col justify-center items-center space-y-10 gap-x-3 p-6 border shadow-lg w-full max-w-md bg-white/10 backdrop rounded-[20px]">Travel Blog is a unique free online travel diary for travellers across the world. It works from internet cafes and computers world wide, to allow you to update an online travel diary, it is free to join and takes just minutes to setup, all you need is a working email address. You can contact us here if you have business or press questions - or use the Travel Forum for travelblog user support, travel questions, or just introducing yourself. For advertising information please visit our advertising page</p>
+        {/* <Link to="/login">
+        <button className="mt-8 px-6 py-3 outline text-white hover:outline-orange-200 rounded-full">
           Get Started
-        </button> */}
+        </button>
         </Link>
-        
+         */}
       </div>
     </div>
         <Footer/>
