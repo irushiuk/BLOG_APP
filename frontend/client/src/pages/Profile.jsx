@@ -194,22 +194,22 @@ const Profile = () => {
         <div>
             <Navbar />
             <div className='px-8 md:px-200px mt-8 flex md:flex-row flex-col-reverse'>
-                <div className='flex flex-col md:w-[70%] w-full'>
-                    <h1 className='text-xl font-bold mb-4'>Your Posts</h1>
+                <div className='flex flex-col md:w-[70%] w-full mb-10'>
+                    <h1 className='text-xl font-bold mb-4 text-slate-600'>Your Posts</h1>
                     {Array.isArray(posts) && posts.map((p) => (
                         <ProfilePosts key={p._id} p={p} />
                     ))}
                 </div>
 
-                <div className='flex justify-start md:justify-end items-start md:w-[30%] w-full md:items-end'>
-                    <div className='flex flex-col space-y-4 items-start'>
-                        <h1 className='text-xl font-bold mb-4'>Profile</h1>
-                        <input onChange={(e) => setUsername(e.target.value)} value={username} type="text" placeholder='username' className='outline-none px-4 py-2 text-gray-300' />
-                        <input onChange={(e) => setEmail(e.target.value)} value={email} type="text" placeholder='email' className='outline-none px-4 py-2 text-gray-300' />
+                <div className='flex justify-start md:justify-end items-start md:w-[30%] w-full '>
+                    <div className='flex flex-col space-y-4 items-start mb-6 border p-4 rounded border-slate-500'>
+                        <h1 className='text-xl text-slate-600 font-bold mb-2'>Profile</h1>
+                        <input onChange={(e) => setUsername(e.target.value)} value={username} type="text" placeholder='username' className='outline-none px-4 py-2 text-gray-400 text-bold' />
+                        <input onChange={(e) => setEmail(e.target.value)} value={email} type="text" placeholder='email' className='outline-none px-4 py-2 text-gray-400 text-bold' />
                         {/* <input onChange={(e) => setPassword(e.target.value)} value={password} type="text" placeholder='password' className='outline-none px-4 py-2 text-gray-300' /> */}
                         <div className='flex items-center space-x-4'>
-                            <button onClick={handleUserUpdate} className='bg-blue px-4 py-2 bg-black text-white'>Update</button>
-                            <button onClick={handleUserDelete} className='bg-blue px-4 py-2 bg-black text-white'>Delete</button>
+                            <button onClick={handleUserUpdate} className=' px-4 py-2 bg-slate-400 text-white rounded-lg'>Update</button>
+                            <button onClick={handleUserDelete} className='bg-blue px-4 py-2 bg-slate-400 text-white rounded-lg'>Delete</button>
                         </div>
                         {updated && <h3 className='text-green-500 text-sm'>User updated successfully!</h3>}
                     </div>

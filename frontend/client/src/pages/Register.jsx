@@ -1,126 +1,82 @@
-import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import {URL} from '../url'
-import Navbar from "../component/Navbar"
-import Footer from "../component/Footer"
-import axios from 'axios'
-
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
+import Footer from "../component/Footer";
+import Navbar from "../component/Navbar";
+import { URL } from '../url';
 
 const Register = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
-  const [username,setUsername] = useState("")
-  const[email,setEmail] = useState("")
-  const [password,setPassword] = useState("")
-  const [error,setError] = useState("")
-  const navigate = useNavigate()
-
-  // const handleRegister = async()=>{
-  //   try{
-  //     const res=axios.post()
-  //   }
-  //   catch(err){
-  //     console.log(err)
-  //   }
-  // }
   const handleRegister = async () => {
     try {
-      const res = await axios.post(`${URL}/api/auth/register`, { // Provide the correct URL for the API endpoint
-        username,
-        email,
-        password,
-      });
-      //console.log(res.data); // Handle successful registration
-      setUsername(res.data.username)
-      setEmail(res.data.email)
-      setPassword(res.data.password)
-      setError(false)
-      navigate("/login")
-    } 
-    
-    catch (err) {
-      setError(err.response?.data?.message || "An error occurred");
-      console.log(err);
+      const res = await axios.post(`${URL}/api/auth/register`, { username, email, password });
+      setUsername(res.data.username);
+      setEmail(res.data.email);
+      setPassword(res.data.password);
+      setError(false);
+      navigate("/login");
+    } catch (err) {
+      setError(true);
     }
   };
 
-  // console.log(username)
-  // console.log(email)
-  // console.log(password)
-
-  // return (
-  //   <div>
-  //     <Navbar/>
-  //       <div className='w-full flex justify-center items-center
-  //   h-[70bh]'>
-  //       <div className='flex flex-col justify-center items-center space-y-4'>
-  //           <h1>Create an account</h1>
-  //           <input onChange={(e)=>setUsername(e.target.value)} type="text" placeholder='username'/>
-  //           <input onChange={(e)=>setEmail(e.target.value)} type="text" placeholder='email'/>
-  //           <input onChange={(e)=>setPassword(e.target.value)} type="password" placeholder='Password' />
-  //           <button onClick= (handleRegister) className='w-full px-4 py-4'>Register</button>
-
-  //           <div className='flex justify-center items-center spac'>
-  //               <p>Already have an account?</p>
-  //               <p className="text-gray"><Link to="/login">Login</Link></p>
-  //           </div>
-  //       </div>
-
-  //   </div>
-  //   <Footer/>
-  //   </div>
-  // )
-
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
       <div className="flex flex-grow">
-        <div className="relative w-2/3">
-      <img src="https://images.unsplash.com/photo-1503516459261-40c66117780a?w=500&auto=format&fit=crop&q=60&ixlib=r
-      b-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZSUyMHRyYXZlbGxpbmd8ZW58MHx8MHx8fDA%3D" alt="" 
-      className="absolute inset-0 w-full h-full object-cover"/>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <h1 className="text-white text-4xl font-bold">Create an account and share your experience with us..</h1>
-      </div>
-      </div>
-      <div className=' flex justify-center items-center h-[70vh] relatife w-1/3 backdrop-blur-2xl'>
-        <div className='flex flex-col justify-center items-center space-y-4 text-bold'>
-          <h1>Create an account</h1>
-          <input
-            onChange={(e) => setUsername(e.target.value)}
-            type="text"
-            placeholder='Username'
-            className='px-4 py-2 border rounded'
-          />
-          <input
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            placeholder='Email'
-            className='px-4 py-2 border rounded'
-          />
-          <input
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            placeholder='Password'
-            className='px-4 py-2 border rounded'
-          />
-          {error && <p className='text-red-500'>{error}</p>}
-          <button
-            onClick={handleRegister}
-            className=' px-4 py-2  text-black outline rounded-full hover:outline-gray-600 '
-          >
-            Register
-          </button>
-          <div className='flex justify-center items-center space-x-2'>
-            <p>Already have an account?</p>
-            <p className="text-blue-500"><Link to="/login">Login</Link></p>
+        <div className="relative" style={{ flex: '100%' }}>
+          <img src="https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTF8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D" className="absolute inset-0 w-full h-full object-cover bg-zinc-900/90" alt="Background" />
+          <div className="absolute inset-0 bg-black/50 flex justify-center items-center">
+            <div className="absolute inset-0 bg-black/60 flex justify-center items-center">
+              <div className="flex justify-center items-center">
+                <div className="flex flex-col justify-center items-center space-y-10 gap-x-3 p-6 border shadow-lg w-full max-w-md bg-white/10 backdrop-blur-md rounded-[20px]">
+                  <h1 className='text-white'>Create an account</h1>
+                  <form>
+                    <div className="relative my-4">
+                      <input 
+                        onChange={(e) => setUsername(e.target.value)} 
+                        type="text" 
+                        placeholder="Username" 
+                        className="block w-72 py-2.5 px-0 text-sm text-default bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600" 
+                      />
+                    </div>
+                    <div className="relative my-4">
+                      <input 
+                        onChange={(e) => setEmail(e.target.value)} 
+                        type="email" 
+                        placeholder="Email" 
+                        className="block w-72 py-2.5 px-0 text-sm text-default bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600" 
+                      />
+                    </div>
+                    <div className="relative my-4">
+                      <input 
+                        onChange={(e) => setPassword(e.target.value)} 
+                        type="password" 
+                        placeholder="Password" 
+                        className="block w-72 py-2.5 px-0 text-sm text-default bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600" 
+                      />
+                    </div>
+                  </form>
+                  <button onClick={handleRegister} className="px-6 py-2 outline text-white hover:outline-yellow-100 rounded-full">Register</button>
+                  {error && <p className="text-red-500">Registration failed. Please try again.</p>}
+                  <div className="flex justify-center items-center space-x-2">
+                    <p className='text-white'>Already have an account?</p>
+                    <p className="text-blue-500"><Link to="/login">Login</Link></p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div></div>
-      
+      </div>
       <Footer />
     </div>
   );
-}
+};
 
-
-export default Register
+export default Register;

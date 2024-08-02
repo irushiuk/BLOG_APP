@@ -156,15 +156,16 @@ const EditPost = () => {
         <div>
             <Navbar />
             <div className='px-6 md:px[200px] mt-8'>
-                <h1 className='font-bold md:text-2xl text-xl'>Edit Post</h1>
-                <div className='p-8 rounded-lg shadow-lg outline-black'>
+                <h1 className='font-bold md:text-2xl text-xl'>Edit Your Post</h1>
+                <div className='p-8 rounded-lg shadow-lg border border-gray-300 mt-4 mb-10'>
                 <form className='w-full flex flex-col space-x-4'>
                     <input onChange={(e) => setTitle(e.target.value)} value={title} type="text" placeholder='Enter post title' className='px-4 py-2 outline-none' />
 
                     <textarea onChange={(e) => setDesc(e.target.value)} value={desc} rows={15} cols={30} className='px-4 py-2 outline-none' placeholder='Enter post description'></textarea>
                     <input onChange={(e) => setFile(e.target.files[0])} type="file" className='px-4' />
 
-                    <button onClick={handleUpdate}className='bg-black px-4 py-2 mx-auto md:w-[20%] text-white rounded-full font-semibold  md:text-xl text-lg'>Edit</button>
+                    <button onClick={handleUpdate} className='bg-black px-4 py-2 mx-auto md:w-[20%] text-white rounded-full font-semibold
+                            center  md:text-xl text-lg'>Edit</button>
                 </form>
                 </div>
                

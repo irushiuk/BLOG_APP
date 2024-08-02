@@ -2,7 +2,7 @@ import {If} from "../url"
 
 const HomePosts = ({post}) => {
   return (
-    <div >
+    <div className="border border-gray-300 rounded-lg p-4 mb-4  bg-gray-100 hover:shadow-lg">
     
         
     <div className= "w-full flex me-8 space-x-4 mr-4">
@@ -15,7 +15,7 @@ const HomePosts = ({post}) => {
 
         {/*right */}
         <div className="flex flex-col w-[65%] py-3">
-            <h1 className="text-xl font-bold md:mb-2 md:text-2xl text-[#043263]">{post.title}</h1>
+            <h1 className="text-xl font-bold md:mb-2 md:text-2xl text-gray-700">{post.title}</h1>
             <div className="flex mb-2 text-sm font-semibold text-gray-400">
                 <p>@{post.username} </p>
                 &nbsp;

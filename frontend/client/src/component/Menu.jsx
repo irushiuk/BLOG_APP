@@ -70,14 +70,17 @@ const Menu = () => {
   };
 
   return (
-    <div className="bg-black w-[200px] flex flex-col items-start absolute top-12 right-0 p-4 rounded-md shadow-lg">
+    <div className="bg-slate-500 w-[200px] flex flex-col items-start absolute top-12 right-0 p-4 rounded-md shadow-lg">
       {!user ? (
         <>
           <Link to="/login">
             <h3 className="text-white text-lg hover:text-gray-500 mb-2">Login</h3>
           </Link>
           <Link to="/register">
-            <h3 className="text-white text-lg hover:text-gray-500">Register</h3>
+            <h3 className="text-white text-lg hover:text-gray-500 mb-2">Register</h3>
+          </Link>
+          <Link to="/about">
+            <h3 className="text-white text-lg hover:text-gray-500  ">About</h3>
           </Link>
         </>
       ) : (
@@ -85,11 +88,14 @@ const Menu = () => {
           <Link to={`/profile/${user._id}`}>
             <h3 className="text-white text-lg hover:text-gray-500">Profile</h3>
           </Link>
-          <Link to={`/myblogs/${user._id}`}>
-            <h3 className="text-white text-lg hover:text-gray-500">My Blogs</h3>
+          <Link to={`/write`}>
+            <h3 className="text-white text-lg hover:text-gray-500">Write</h3>
           </Link>
           <Link to="/">
             <h3 className="text-white text-lg hover:text-gray-500">Home</h3>
+          </Link>
+          <Link to="/about">
+            <h3 className="text-white text-lg hover:text-gray-500 ">About</h3>
           </Link>
           <h3 onClick={handleLogout} className="text-white text-lg hover:text-gray-500 cursor-pointer">Logout</h3>
         </>

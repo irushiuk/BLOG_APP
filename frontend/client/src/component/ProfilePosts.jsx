@@ -13,14 +13,14 @@ export const ProfilePosts = ({p}) => {
 
   return (
     
-    <div className= "w-full flex me-8 space-x-4 cursor-pointer" onClick={handleClick}>
+    <div className= "w-full flex me-8 space-x-4 cursor-pointer border rounded-lg m-4 p-4 bg-slate-100 hover:shadow-lg" onClick={handleClick}>
         {/*left*/}
         <div className="w-[35%] h-[200px] flex justify-center items-center">
             <img src={p.photo} className="h-full w-full object-cover"/>
         </div>
 
         {/*right */}
-        <div className="flex flex-col w-[65%]">
+        <div className="flex flex-col w-[65%] ">
             <h1 className="">
                 {p.title}
             </h1>

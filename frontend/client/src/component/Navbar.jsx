@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsSearch } from 'react-icons/bs';
 import { FaBars } from "react-icons/fa6";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Menu from "./Menu"; // Correctly imported with uppercase 'M'
 import { UserContext } from "../context/UserContext";
 import { MdOutlineTravelExplore } from "react-icons/md";
@@ -13,6 +13,10 @@ const Navbar = () => {
   const navigate = useNavigate()
   // console.log(prompt)
   const path = useLocation().pathname
+  //outside menu
+  const menuRef = useRef(null);
+
+  
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -21,10 +25,24 @@ const Navbar = () => {
   const {user} = useContext(UserContext);
   const shouldShowSearch = !['/login','/register','/write', '/posts/post','/edit','/profile','/about'].some(path => location.pathname.includes(path));
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuRef]);
+  
  
 
   return (
-    <div className=" flex items-center justify-between px-6 md:px-[200px] py-6 relative bg-black text-white">
+    <div className=" flex items-center justify-between px-6 md:px-[200px] py-8 relative bg-slate-500 text-white">
       <div className="flex items-center text-lg md:text-xl font-extrabold mr-14">
       <MdOutlineTravelExplore />
         <span><Link to="/">Travelers' Blog </Link></span>
@@ -32,10 +50,12 @@ const Navbar = () => {
         {shouldShowSearch && (
           <div className="flex justify-center items-center space-x-0">
           <p onClick={()=>navigate(prompt?"?search="+prompt:navigate)} className="cursor-pointer"><BsSearch/></p>
-          <input onChange={(e)=>setPrompt(e.target.value)} className="outline-none bg-black px-3" placeholder="Search " type="text" />
+          <input onChange={(e)=>setPrompt(e.target.value)} className="outline-none bg-slate-500 px-3" placeholder="Search " type="text" />
         </div>
 
         )}
+
+        
         
       
       {/* {path==="/" && <div onClick={()=>navigate(prompt?"?search"+prompt:navigate("/"))} className="flex justify-center items-center space-x-2 cursor-pointer">
@@ -43,20 +63,39 @@ const Navbar = () => {
         <input onChange={(e)=>setPrompt(e.target.value)} className="outline-none px-3" placeholder="Search" type="text" />
       </div>} */}
       
-      <div className="hidden md:flex items-center justify-center space-x-2 md:space-x-4">
-        {user ? <h3><Link to="/write">Write</Link></h3> : <h3><Link to="/login">Login</Link></h3>}
+      {/* <div className="hidden md:flex items-center justify-center space-x-2 md:space-x-4">
+        {user ? <h3><Link to="/write">Write</Link></h3>  : <h3><Link to="/login">Login</Link></h3>}
         {user ? <div onClick={toggleMenu}>
           <p className="cursor-pointer relative"><FaBars/></p>
           {isMenuOpen && <Menu />}
           </div>  : <h3><Link to="/register">Register</Link></h3>}
-      </div>
-      <div>
+          <div>
         <h3><Link to="/about">About</Link></h3>
       </div>
+      </div> */}
+
+<div className="hidden md:flex items-center justify-center space-x-2 md:space-x-4">
+        {user ? (
+          <h3><Link to="/write">Write</Link></h3>
+        ) : (
+          <>
+            <h3><Link to="/login">Login</Link></h3>
+            <h3><Link to="/register">Register</Link></h3>
+            <h3><Link to="/about">About</Link></h3> {/* About link only shown when there's no user */}
+          </>
+        )}
+        {user && (
+          <div onClick={toggleMenu}>
+            <p className="cursor-pointer relative"><FaBars/></p>
+            {isMenuOpen && <Menu />}
+          </div>
+        )}
+      </div>
+      
       <div onClick={toggleMenu} className="md:hidden text-lg cursor-pointer relative z-50">
         <FaBars />
       </div>
-      {isMenuOpen && <div className="absolute right-0 top-full mt-2 z-50"><Menu /></div> } {/* Conditionally render Menu */}
+      {isMenuOpen && <div ref={menuRef} className="absolute right-0 top-full mt-2 z-50"><Menu /></div> } {/* Conditionally render Menu */}
     </div>
   );
 };

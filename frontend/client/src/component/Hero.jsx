@@ -18,7 +18,7 @@ const Hero = () => {
        </iframe>
       </div> */}
       <img 
-        src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D://plus.unsplash.com/premium_photo-1679917737897-9b373261ad57?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dHJhdmVsfGVufDB8fDB8fHww" 
+        src='https://media.istockphoto.com/id/1971796553/photo/young-couple-is-standing-at-mountain-top-with-great-view.webp?b=1&s=170667a&w=0&k=20&c=a0ufY8XkMlzNvMpY9Ct90ad3lhjJ0nHOFmC-aB4F53Q='
         alt="heroImg" 
         className="absolute inset-0 w-full h-full object-cover"
       />
