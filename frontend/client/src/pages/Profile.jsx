@@ -191,14 +191,18 @@ const Profile = () => {
     // }, [paramId])
 
     return (
-        <div>
+        <div className="flex flex-col min-h-screen"> {/* Ensures the full height of the screen is used */}
             <Navbar />
-            <div className='px-8 md:px-200px mt-8 flex md:flex-row flex-col-reverse'>
+            <div className=' flex-grow px-8 py-24 md:px-200px mt-8 flex md:flex-row flex-col-reverse'>
                 <div className='flex flex-col md:w-[70%] w-full mb-10'>
                     <h1 className='text-xl font-bold mb-4 text-slate-600'>Your Posts</h1>
-                    {Array.isArray(posts) && posts.map((p) => (
-                        <ProfilePosts key={p._id} p={p} />
-                    ))}
+                    {Array.isArray(posts) && posts.length > 0 ? (
+                        posts.map((p) => (
+                            <ProfilePosts key={p._id} p={p} />
+                        ))
+                    ) : (
+                        <p className='text-gray-500'>You haven't posted anything yet.</p> // Message when no posts
+                    )}
                 </div>
 
                 <div className='flex justify-start md:justify-end items-start md:w-[30%] w-full '>
@@ -208,8 +212,8 @@ const Profile = () => {
                         <input onChange={(e) => setEmail(e.target.value)} value={email} type="text" placeholder='email' className='outline-none px-4 py-2 text-gray-400 text-bold' />
                         {/* <input onChange={(e) => setPassword(e.target.value)} value={password} type="text" placeholder='password' className='outline-none px-4 py-2 text-gray-300' /> */}
                         <div className='flex items-center space-x-4'>
-                            <button onClick={handleUserUpdate} className=' px-4 py-2 bg-slate-400 text-white rounded-lg'>Update</button>
-                            <button onClick={handleUserDelete} className='bg-blue px-4 py-2 bg-slate-400 text-white rounded-lg'>Delete</button>
+                            <button onClick={handleUserUpdate} className=' px-4 py-2 bg-gray-800 text-white rounded-lg'>Update</button>
+                            <button onClick={handleUserDelete} className='bg-blue px-4 py-2 bg-gray-800 text-white rounded-lg'>Delete</button>
                         </div>
                         {updated && <h3 className='text-green-500 text-sm'>User updated successfully!</h3>}
                     </div>

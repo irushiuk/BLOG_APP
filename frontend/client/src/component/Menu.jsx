@@ -70,7 +70,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="bg-slate-500 w-[200px] flex flex-col items-start absolute top-12 right-0 p-4 rounded-md shadow-lg">
+    <div className="bg-black w-[100px] flex flex-col  absolute  right-0 p-4 rounded-md shadow-lg">
       {!user ? (
         <>
           <Link to="/login">
@@ -89,7 +89,7 @@ const Menu = () => {
             <h3 className="text-white text-lg hover:text-gray-500">Profile</h3>
           </Link>
           <Link to={`/write`}>
-            <h3 className="text-white text-lg hover:text-gray-500">Write</h3>
+            <h3 className="text-white text-lg hover:text-gray-500 lg:hidden">Write</h3>
           </Link>
           <Link to="/">
             <h3 className="text-white text-lg hover:text-gray-500">Home</h3>

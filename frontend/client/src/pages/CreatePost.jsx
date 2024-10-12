@@ -159,7 +159,7 @@ const CreatePost = () => {
     return (
         <div>
             <Navbar />
-            <div className='px-6 md:px-[200px] mt-8  '>
+            <div className='px-6 py-20 md:px-[200px] mt-8  '>
             <h1 className='font-bold md:text-2xl text-xl '>Create a post</h1>
                 <div className='p-8 rounded-lg shadow-lg border border-gray-300 mt-4 mb-10'>
                

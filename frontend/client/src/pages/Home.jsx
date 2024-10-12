@@ -120,7 +120,7 @@ const Home = () => {
       <Navbar />
       {!user && <Hero/>}
       
-      <div className="px-8 py-8 md:px-[200px] min-h-[80vh]">
+      <div className="px-8 py-8 md:px-[200px] min-h-[80vh] mt-20">
         { !noResults?
           posts.map((post) => (
             <Link key={post._id} to={user ? `/posts/post/${post._id}` : "/login"}>

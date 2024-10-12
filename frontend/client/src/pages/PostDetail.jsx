@@ -312,9 +312,9 @@ const PostDetail = () => {
   if (loader) return <div>Loading...</div>;
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen"> {/* Ensures the full height of the screen is used */}
       <Navbar />
-      <div className="px-8 md:px-[200px] m-8 p-4 bg-slate-100 border rounded">
+      <div className="flex-grow px-8 md:px-[200px] py-24 p-4 bg-slate-100 border rounded">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-[#043263] md:text-3xl">{post.title}</h1>
           {user?._id === post?.userId && (
@@ -331,8 +331,15 @@ const PostDetail = () => {
             <p>{new Date(post.updatedAt).toString().slice(16, 24)}</p>
           </div>
         </div>
-        {post.photo && <img src={`${If}${post.photo}`} alt={post.title} />}
-        <p className="mx-auto mt-8">{post.description}</p>
+        {post.photo && (
+          <div className="w-full h-[400px] flex justify-center items-center mb-4">
+            <img
+              src={`${If}${post.photo}`}
+              alt={post.title}
+              className="w-full h-full object-cover rounded-lg" // Ensure the image is the same size and covers the container
+            />
+          </div>
+        )}        <p className="mx-auto mt-8">{post.description}</p>
         {/* <div className="flex flex-col mt-4">
           <h3>Comments</h3>
           <div className="px-2 py-2 bg-gray-200 rounded-lg">

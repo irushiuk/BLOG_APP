@@ -27,11 +27,12 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen mt-20">
       <Navbar />
       <div className="flex flex-grow">
         <div className=" relative" style={{flex:'100%'}}>
-          <img src="https://media.istockphoto.com/id/1443409611/photo/man-on-stone-on-the-hill-and-beautiful-mountains-in-haze-at-colorful-sunset-in-autumn.jpg?s=612x612&w=0&k=20&c=dcyDpPqlhCWMZYgqgHSrJZdoaH_ARrlgkpUcARp1_GU=" className="absolute inset-0 w-full h-full object-cover bg-zinc-900/90" alt="Background" />
+          <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D://plus.unsplash.com/premium_photo-1679917737897-9b373261ad57?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dHJhdmVsfGVufDB8fDB8fHww" 
+ className="absolute inset-0 w-full h-full object-cover bg-zinc-900/90" alt="Background" />
           <div className="absolute inset-0 bg-black/50 flex justify-center items-center">
             {/* <h1 className="text-white text-4xl font-bold">Share your travel experience with us...</h1> */}
             <div className="absolute inset-0 bg-black/60 flex justify-center items-center">
