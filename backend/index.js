@@ -18,7 +18,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 app.use("/images",express.static(path.join(__dirname,"/images")))
-app.use(cors({origin:"https://blog-app-7chw.onrender.com",credentials:true}))
+app.use(cors({origin:"https://blog-app-frontend-sp97.onrender.com",credentials:true}))
 
 // Use the user routes
 app.use('/api/auth', authRoute);
