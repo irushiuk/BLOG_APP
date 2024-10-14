@@ -72,7 +72,11 @@ router.post('/login',async(req,res) =>{
 //LOG OUT
 router.get("/logout",async(req,res)=>{
     try{
-        res.clearCookie("token",{sameSite:"none",secure:true}).status(200).send("User logged out succesfull!")
+        res.clearCookie("token",{
+            sameSite:"none",
+            secure:true,
+            httpOnly: true
+        }).status(200).send("User logged out succesfull!")
     }
 
     catch(err){
