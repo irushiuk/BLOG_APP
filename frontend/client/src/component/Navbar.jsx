@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsSearch } from 'react-icons/bs';
 import { FaBars } from "react-icons/fa6";
 import { useContext, useEffect, useRef, useState } from "react";
-import Menu from "./Menu"; // Correctly imported with uppercase 'M'
+import Menu from "./Menu"; 
 import { UserContext } from "../context/UserContext";
 import { MdOutlineTravelExplore } from "react-icons/md";
 import '../App.css';
@@ -80,13 +80,12 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* Mobile View (md:hidden) */}
-      {/* Use the same toggle function, but only render FaBars here in mobile view */}
+    
+    
       <div onClick={toggleMenu} className="md:hidden text-lg cursor-pointer relative z-50">
         <FaBars />
       </div>
 
-      {/* Conditionally render the menu only once for both mobile and desktop */}
       {isMenuOpen && (
         <div ref={menuRef} className="absolute right-0 top-full mt-2 z-50">
           <Menu />
